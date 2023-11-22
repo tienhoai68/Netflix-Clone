@@ -1,26 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import { movieService } from '../../services/Movie';
+import React from 'react'
+import Carousel from './Components/Carousel/Carousel';
+import Upcoming from './Components/Upcoming/Upcoming';
+import Popular from './Components/Popular/Popular';
+import Trending from './Components/Trending/Trending';
+import TopRated from './Components/TopRated/TopRated';
+import Horror from './Components/Horror/Horror';
 
 const Home = () => {
-  const [movies, setMovies] = useState([]);
-
-  const movieRamdom = movies[Math.floor(Math.random() * movies.length)]
-
-  const fetchMovieNowPlaying = async () => {
-    try {
-      const result = await movieService.fetchMovieNowPlayingApi();
-      setMovies(result.data.results)
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  console.log(movieRamdom);
-  useEffect(() => {
-    fetchMovieNowPlaying();
-  }, [])
-
   return (
-    <div>Home</div>
+    <>
+      <Carousel />
+      <Upcoming />
+      <Popular />
+      <Trending />
+      <TopRated />
+      <Horror />
+    </>
   )
 }
 

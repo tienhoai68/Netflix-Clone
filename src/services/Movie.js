@@ -3,8 +3,14 @@ const { requestApi } = require("../configs/callApi")
 class MovieService {
   fetchMovieNowPlayingApi = () => {
     return requestApi({
-      url: "/popular?language=en-US&page=1'",
+      url: "/popular?language=en-US&page=1",
       method: "GET",
+    })
+  }
+  fetchUpcomingMovieApi = () => {
+    return requestApi({
+      url: "/upcoming?language=en-US&page=1",
+      method: "GET"
     })
   }
 }
